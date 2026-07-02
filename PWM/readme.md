@@ -11,4 +11,4 @@ Figure 1: PWM generation for C2000 Microcontroller Hardware <br>
 
 #### Voltage-Frequency Generation <br>
 
-u^*(f_1) = \hat{u}^*_{\max} \cdot \frac{f_1}{f_{1,\max}}
+$$u^*(f_1) = \hat{u}^*_{\max} \cdot \frac{f_1}{f_{1,\max}}$$
