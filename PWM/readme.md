@@ -12,3 +12,11 @@ Figure 1: PWM generation for C2000 Microcontroller Hardware <br>
 #### Voltage-Frequency Generation <br>
 
 Here is the function: $u^*(f_1) = \hat{u}^*_{\max} \cdot \frac{f_1}{f_{1,\max}}$
+
+Park Transformation: <br>
+
+$$
+\boldsymbol{x}_{\alpha\beta} = \begin{bmatrix} \cos(\varepsilon) & -\sin(\varepsilon) \\ \sin(\varepsilon) & \cos(\varepsilon) \end{bmatrix} \begin{bmatrix} x_{\mathrm{d}} \\ x_{\mathrm{q}} \end{bmatrix} = \boldsymbol{T}_{\mathrm{p}}(\varepsilon) \boldsymbol{x}_{\mathrm{dq}}.
+$$  
+
+<br>
