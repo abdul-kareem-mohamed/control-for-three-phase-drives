@@ -33,15 +33,15 @@ $$\varepsilon_{\text{el}}(t) = 2\pi \int_{0}^{t} f_1(\tau) \text{d}\tau$$
 
 The inverse Park transformation then maps the dq-components into the stationary $\alpha\beta$-frame using the electrical angle:
 
-
-$$\begin{bmatrix} u^*_{\alpha} \\ u^*_{\beta} \end{bmatrix} = \begin{bmatrix} \cos \varepsilon_{\text{el}} & -\sin \varepsilon_{\text{el}} \\ \sin \varepsilon_{\text{el}} & \cos \varepsilon_{\text{el}} \end{bmatrix} \begin{bmatrix} u^*_{\text{d}} \\ u^*_{\text{q}} \end{bmatrix}$$
+<img width="397" height="92" alt="image" src="https://github.com/user-attachments/assets/b901f235-402a-4072-8e0e-aa721ed976ac" /> <br>
+Figure 2: dq to $\alpha\beta$-frame transformation matrix <br>
 
 #### Step 2: Inverse Clarke Transformation ($\alpha\beta$ $\rightarrow$ abc)
 
 The inverse Clarke transformation block converts the two-phase stationary representation into the three-phase normalized references for the motor:
 
-
-$$\begin{bmatrix} \tilde{u}^*_{\text{a}} \\ \tilde{u}^*_{\text{b}} \\ \tilde{u}^*_{\text{c}} \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{1}{2} & -\frac{\sqrt{3}}{2} \end{bmatrix} \begin{bmatrix} u^*_{\alpha} \\ u^*_{\beta} \end{bmatrix}$$
+<img width="323" height="146" alt="image" src="https://github.com/user-attachments/assets/eb5b8e85-9580-462e-a22b-b77e201cbadb" /> <br>
+Figure 3: $\alpha\beta$ to abc-frame transformation matrix <br>
 
 ## Output Behavior
 
