@@ -48,3 +48,44 @@ Figure 3: $\alpha\beta$ to abc-frame transformation matrix <br>
 The resulting signals $\tilde{u}^*_{\text{a,b,c}}(t)$ are purely sinusoidal and mutually displaced by 120°. They maintain a peak value equal to $\hat{u}^*(f_1)$ and are passed directly to the PWM submodule as normalized voltage references.
 
 <br>
+
+## Implementation of PWM Submodule Counter Scaling
+
+#### Overview
+
+In this task, the internal logic of the PWM submodule was implemented to bridge the gap between the theoretical control signals and the physical hardware. The primary objective was to convert the continuous, normalized phase voltage references $\tilde{u}^*_{\text{a,b,c}}(t)$ into discrete integer counter values required by the C2000 ePWMx blocks.
+
+### Implementation Steps
+
+#### 1. Affine Scaling Logic
+
+The incoming reference signals, $\tilde{u}^*_x$, operate within a normalized range of $[-1, 1]$. However, the ePWMx blocks utilize up-down counters that require a compare value (CMPA) strictly within the positive range of `[0, PwmCntTopValue]`.
+
+To achieve this mapping, standard mathematical operation blocks (Add, Multiply, Divide) were arranged to implement the following affine scaling equation for each of the three phases (A, B, and C):
+
+
+$$\text{xCounts} = \frac{1 + \tilde{u}^*_x}{2} \cdot \text{PwmCntTopValue}$$
+
+This ensures that:
+
+* A minimum reference of $-1$ maps exactly to a counter value of $0$.
+* A maximum reference of $+1$ maps exactly to the `PwmCntTopValue`.
+
+#### 2. Data Type Conversion
+
+Since the hardware counter registers exclusively accept discrete integers, the floating-point output of the affine scaling equation could not be routed directly to the ePWMx blocks. A Data Type Conversion block was inserted immediately after the scaling mathematical operations to cast the calculated values into a discrete integer format.
+
+#### 3. Hardware Parameter Integration
+
+The implementation relies on two critical hardware parameters exposed by the pre-existing constant blocks. **Care was taken to ensure the block names remained completely unchanged**, as they are actively referenced by background mask and callback functions:
+
+* **`PwmCntTopValue` (9375):** This value is multiplied within the scaling logic. It defines the period register (TBPRD) limit, effectively setting the switching frequency to 8 kHz (based on a 150 MHz system clock).
+* **`deadband` (600):** This parameter remains integrated to define the rising and falling edge delay registers (DBRED = DBFED), providing a 4 µs dead time to prevent shoot-through in the inverter legs.
+
+#### 4. Signal Routing
+
+Finally, the scaled and discretized signals were correctly routed to their respective output ports:
+
+* Phase A mapped to `ACounts` $\rightarrow$ `ePWM1`
+* Phase B mapped to `BCounts` $\rightarrow$ `ePWM2`
+* Phase C mapped to `CCounts` $\rightarrow$ `ePWM3`
