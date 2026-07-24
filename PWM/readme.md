@@ -89,3 +89,7 @@ Finally, the scaled and discretized signals were correctly routed to their respe
 * Phase A mapped to `ACounts` $\rightarrow$ `ePWM1`
 * Phase B mapped to `BCounts` $\rightarrow$ `ePWM2`
 * Phase C mapped to `CCounts` $\rightarrow$ `ePWM3`
+
+<br>
+
+## Simulation
