@@ -93,3 +93,7 @@ Finally, the scaled and discretized signals were correctly routed to their respe
 <br>
 
 ## Simulation
+
+<img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/12f4ab1d-c3f0-4fd0-b405-5a01cb02b806" />
+
+
