@@ -6,7 +6,7 @@ Implementation include: <br>
 3. Deployed the model in hardware and did oscilloscope measurements to verify switching frequency, voltage levels, duty cycle and modulation. <br>
 4. Analyzed motor current and speed feedback to tune frequency ramp profiles. <br>
 
-<img width="1129" height="522" alt="image" src="https://github.com/user-attachments/assets/39651ab5-8bef-4cfa-b65a-fdc0ec4c0bdb" /> <br>
+<img width="847" height="512" alt="image" src="https://github.com/user-attachments/assets/caa8c042-643d-4290-a716-344313036905" /> <br>
 Figure 1: PWM generation for C2000 Microcontroller Hardware <br> 
 
 #### Voltage-Frequency Generation <br>
@@ -94,6 +94,14 @@ Finally, the scaled and discretized signals were correctly routed to their respe
 
 ## Simulation
 
-<img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/12f4ab1d-c3f0-4fd0-b405-5a01cb02b806" />
+<img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/7d8b4673-0659-403c-946e-9657ff885df1" /> <br>
+Figure 4: Three phase signal
+
+<img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/a4146faf-3971-460f-8ef3-9a307949dd71" /> <br>
+Figure 5: Digital Three phase signal for C2000 hardware
+
+
+
+
 
 
