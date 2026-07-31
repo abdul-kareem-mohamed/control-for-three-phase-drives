@@ -94,13 +94,6 @@ Finally, the scaled and discretized signals were correctly routed to their respe
 
 ## Implementation of Zero-point shifting
 
-Here is a GitHub-ready writeup formatted in Markdown. You can use this for a `README.md` section, a pull request description, or project documentation.
-
----
-
-# Task 1: Implementing the Zero-Point Shift
-
-
 ### 1. Zero-Sequence Signal Computation
 
 * **Action:** Calculated the zero-sequence signal, $u_0(t)$, directly from the three input references.
