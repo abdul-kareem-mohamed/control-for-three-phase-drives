@@ -92,6 +92,33 @@ Finally, the scaled and discretized signals were correctly routed to their respe
 
 <br>
 
+## Implementation of Zero-point shifting
+
+Here is a GitHub-ready writeup formatted in Markdown. You can use this for a `README.md` section, a pull request description, or project documentation.
+
+---
+
+# Task 1: Implementing the Zero-Point Shift
+
+
+### 1. Zero-Sequence Signal Computation
+
+* **Action:** Calculated the zero-sequence signal, $u_0(t)$, directly from the three input references.
+* **Reference:** This computation follows the specific reference equation provided in the primary assignment documentation.
+
+### 2. Overmodulation Clipping
+
+* **Action:** Placed a clipping mechanism immediately following the zero-sequence computation.
+* **Purpose:** This ensures the resulting signals are safely constrained and handled during overmodulation scenarios.
+
+### 3. Bypass Mechanism (Switch Logic)
+
+* **Action:** Integrated a standard Switch block at the end of the subsystem to control the final output.
+* **Logic:** The switch is routed to the `Active` control signal:
+* When $Active = 0$: The entire zero-point shift and clipping chain is bypassed. The system outputs the plain, unmodified sinusoidal references.
+* When $Active \neq 0$: The processed signal (with zero-point shift and clipping applied) is passed through.
+
+
 ## Simulation
 
 <img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/7d8b4673-0659-403c-946e-9657ff885df1" /> <br>
