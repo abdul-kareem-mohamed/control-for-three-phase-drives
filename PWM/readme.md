@@ -136,8 +136,7 @@ Accelerate the Induction Machine (IM) from standstill to the speed achievable at
 **Goal:** Determine if the machine reaches a steady state at a higher speed and verify the ratio $n_{\text{zsi}}/n_{\text{sin}} = \frac{2}{\sqrt{3}}$.
 
 *   **Observed Speed with ZSI ($n_{\text{zsi}}$):** `1730 min^-1`
-*   **Calculation:**
-    $$ \frac{n_{\text{zsi}}}{n_{\text{sin}}} = \frac{\text{[Insert } n_{\text{zsi}} \text{]}}{1500} = \text{2/√3} $$
+*   **Relation:** It is confirmed that n_zsi/n_sin = 2/√3.
 *   **Conclusion:** The zero-sequence injection successfully extends the linear modulation range, allowing for higher fundamental output voltage and consequently higher speed.
 
 
