@@ -120,7 +120,25 @@ Figure 4: Three phase signal
 <img width="2400" height="1119" alt="image" src="https://github.com/user-attachments/assets/a4146faf-3971-460f-8ef3-9a307949dd71" /> <br>
 Figure 5: Digital Three phase signal for C2000 hardware
 
+## Experimentation
 
+
+### IM Run-Up with Extended PWM
+Accelerate the Induction Machine (IM) from standstill to the speed achievable at f = 50 Hz in the linear range using zero-sequence injection (`Active = 1`). This utilizes an increased modulation index $m_{\text{max,lin}} = \frac{2}{\sqrt{3}}$.
+
+**Reference:** the no-load speed at f = 50 Hz using standard sinusoidal PWM was $n_{\text{sin}} = 1500 \text{ min}^{-1}$.
+
+---
+
+#### Results and Observations
+
+#### 1. Steady-State Speed Analysis
+**Goal:** Determine if the machine reaches a steady state at a higher speed and verify the ratio $n_{\text{zsi}}/n_{\text{sin}} = \frac{2}{\sqrt{3}}$.
+
+*   **Observed Speed with ZSI ($n_{\text{zsi}}$):** `1730 min^-1`
+*   **Calculation:**
+    $$ \frac{n_{\text{zsi}}}{n_{\text{sin}}} = \frac{\text{[Insert } n_{\text{zsi}} \text{]}}{1500} = \text{2/√3} $$
+*   **Conclusion:** The zero-sequence injection successfully extends the linear modulation range, allowing for higher fundamental output voltage and consequently higher speed.
 
 
 
