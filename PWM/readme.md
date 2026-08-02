@@ -128,8 +128,6 @@ Accelerate the Induction Machine (IM) from standstill to the speed achievable at
 
 **Reference:** the no-load speed at f = 50 Hz using standard sinusoidal PWM was $n_{\text{sin}} = 1500 \text{ min}^{-1}$.
 
----
-
 #### Results and Observations
 
 #### 1. Steady-State Speed Analysis
@@ -140,5 +138,28 @@ Accelerate the Induction Machine (IM) from standstill to the speed achievable at
 *   **Conclusion:** The zero-sequence injection successfully extends the linear modulation range, allowing for higher fundamental output voltage and consequently higher speed.
 
 
+### Internal vs. External Current Measurement
 
+To validate the accuracy of the internally sampled peak fundamental current ($\hat{i}_{\text{a,LN}}$) against the true fundamental extracted via oscilloscope FFT (using a phase a current clamp). The machine was evaluated in steady-state no-load operation at a fundamental frequency of $f_1 = 25 \text{ Hz}$ across various modulation regimes.
+
+### Results and Observations
+
+#### 1. Linear Range ($m = 0.8$)
+*   **Oscilloscope Observation:** The oscilloscope captures a clear sinusoidal envelope. The high-frequency switching ripple $\Delta i$ is superimposed on the fundamental wave, confirming the expected inverter operation.
+*   **Measurement Comparison:** The test was conducted, and the peak fundamental current read from the oscilloscope FFT is in agreement with the internally sampled $\hat{i}_{\text{a,LN}}$. 
+*   **Conclusion:** This match demonstrates the effectiveness of synchronous center-aligned sampling. By sampling at the center of the PWM period, the internal ADC avoids the switching ripple, yielding an accurate representation of the fundamental current without requiring complex digital filtering.
+
+#### 2. Edge of Linear Range ($m \approx 1.155$)
+*   **Measurement Comparison:** The test was conducted, and the measurements continue to be in agreement.
+*   **Conclusion:** The accuracy persists at the boundary of the linear range. This validates the zero-sequence injection strategy. It confirms that as long as the voltage modulation remains linear, the center-sampling principle remains a reliable method for capturing the fundamental peak.
+
+#### 3. Overmodulation ($m = 1.4$)
+*   **Oscilloscope Observation:** The oscilloscope provides visual confirmation of the machine entering overmodulation. The sinusoidal envelope flattens as the voltage commands clip against the DC link limits, and we can observe the introduction of expected low-order harmonics (such as the 5th and 7th).
+*   **Measurement Comparison:** The test was conducted, and the measurements are in agreement with theoretical expectations for this regime. 
+*   **Conclusion:** As theoretically predicted, we observed the anticipated divergence between the internal estimate and the FFT fundamental. This illustrates the physical limits of the standard sampling model: as pulse dropping occurs in the overmodulation region, the assumption that the PWM counter midpoint represents the average current breaks down. Observing this limitation in practice validates the underlying modulation theory.
+
+#### 4. Six-Step Operation ($m \gg 1$)
+*   **Oscilloscope Observation:** The hardware exhibits the expected six-step behavior, characterized by distorted, block-like voltage profiles and high-harmonic current waveforms. It demonstrates maximum DC-link voltage utilization.
+*   **Validity of Internal Estimate:** At this stage, the internally sampled value $\hat{i}_{\text{a,LN}}$ ceases to be a valid estimate of the fundamental current, which aligns with control system expectations.
+*   **What the ADC is Actually Measuring:** In this regime, continuous PWM switching is disabled in favor of 120-degree block commutations. Consequently, there is no longer a synchronized PWM carrier. The ADC captures instantaneous points of the distorted phase current rather than a filtered average. This provides practical insight into why standard Field Oriented Control architectures must adapt their feedback mechanisms when transitioning into deep field-weakening and six-step modes.
 
