@@ -166,14 +166,14 @@ To validate the accuracy of the internally sampled peak fundamental current ($\h
 ### Current Quality for Different Modulation Indices
 To measure the phase current during steady-state no-load operation for several modulation indices ($m$), determine the fundamental RMS current ($I_{\text{a}}^{(1)}$), and compute the Total Harmonic Distortion (THD).
 
-## Theory
+#### Theory
 The total harmonic distortion (THD) of the phase current increases with the switching frequency ripple and with the harmonic content introduced by overmodulation. A convenient measure is the ratio of the fundamental RMS current $I^{(1)} = \hat{i}^{(1)}/\sqrt{2}$ to the total RMS current $I$:
 
 $$ \text{THD} = \frac{\sqrt{I^2 - (I^{(1)})^2}}{I^{(1)}} $$
 
 For a pure sinusoid THD = 0; increasing harmonic content drives $\text{THD} \gg 0$.
 
-## Results and Observations
+#### Results and Observations
 
 The test was conducted and the measurements are in agreement with theoretical expectations. 
 
