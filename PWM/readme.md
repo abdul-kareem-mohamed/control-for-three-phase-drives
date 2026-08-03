@@ -164,10 +164,16 @@ To validate the accuracy of the internally sampled peak fundamental current ($\h
 *   **What the ADC is Actually Measuring:** In this regime, continuous PWM switching is disabled in favor of 120-degree block commutations. Consequently, there is no longer a synchronized PWM carrier. The ADC captures instantaneous points of the distorted phase current rather than a filtered average. This provides practical insight into why standard Field Oriented Control architectures must adapt their feedback mechanisms when transitioning into deep field-weakening and six-step modes.
 
 ### Current Quality for Different Modulation Indices
-
 To measure the phase current during steady-state no-load operation for several modulation indices ($m$), determine the fundamental RMS current ($I_{\text{a}}^{(1)}$), and compute the Total Harmonic Distortion (THD).
 
-#### Results
+## Theory
+The total harmonic distortion (THD) of the phase current increases with the switching frequency ripple and with the harmonic content introduced by overmodulation. A convenient measure is the ratio of the fundamental RMS current $I^{(1)} = \hat{i}^{(1)}/\sqrt{2}$ to the total RMS current $I$:
+
+$$ \text{THD} = \frac{\sqrt{I^2 - (I^{(1)})^2}}{I^{(1)}} $$
+
+For a pure sinusoid THD = 0; increasing harmonic content drives $\text{THD} \gg 0$.
+
+## Results and Observations
 
 The test was conducted and the measurements are in agreement with theoretical expectations. 
 
@@ -177,7 +183,5 @@ The test was conducted and the measurements are in agreement with theoretical ex
 | $I_{\text{a}}^{(1)}$ / A | 3.25 | 4.03 | 4.38 | 4.38 | - |
 | THD / % | 19.39 | 21.25 | 21.49 | 20.37 | Sharp Increase |
 
-#### Observations
-
-* **Linear Range:** Within the linear modulation regions ($m \le 1.155$), the THD remains relatively stable and low. 
-* **Overmodulation Range:** As the modulation index enters the deep overmodulation range (e.g., $m = 1.3$), the THD exhibits a sharp increase. This trend is consistent with the theoretical prediction of increased low-order harmonic content, which occurs as the inverter is forced to drop pulses and the output voltage is clipped against the physical DC link limits.
+* **Linear Range:** Within the linear modulation regions ($m \le 1.155$), the THD remains stable and low. 
+* **Overmodulation Range:** As the modulation index enters the overmodulation range (e.g., $m = 1.3$), the THD exhibits a sharp increase. This trend is consistent with the increase in low-order harmonic content predicted by theory.
