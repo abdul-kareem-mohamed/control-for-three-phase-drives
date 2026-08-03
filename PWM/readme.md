@@ -163,3 +163,21 @@ To validate the accuracy of the internally sampled peak fundamental current ($\h
 *   **Validity of Internal Estimate:** At this stage, the internally sampled value $\hat{i}_{\text{a,LN}}$ ceases to be a valid estimate of the fundamental current, which aligns with control system expectations.
 *   **What the ADC is Actually Measuring:** In this regime, continuous PWM switching is disabled in favor of 120-degree block commutations. Consequently, there is no longer a synchronized PWM carrier. The ADC captures instantaneous points of the distorted phase current rather than a filtered average. This provides practical insight into why standard Field Oriented Control architectures must adapt their feedback mechanisms when transitioning into deep field-weakening and six-step modes.
 
+### Current Quality for Different Modulation Indices
+
+To measure the phase current during steady-state no-load operation for several modulation indices ($m$), determine the fundamental RMS current ($I_{\text{a}}^{(1)}$), and compute the Total Harmonic Distortion (THD).
+
+#### Results
+
+The test was conducted and the measurements are in agreement with theoretical expectations. 
+
+| $m$ | 0.5 | 0.8 | 1.0 | 1.1 | 1.3 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| $I_{\text{a}}$ / A | 3.31 | 4.12 | 4.48 | 4.47 | - |
+| $I_{\text{a}}^{(1)}$ / A | 3.25 | 4.03 | 4.38 | 4.38 | - |
+| THD / % | 19.39 | 21.25 | 21.49 | 20.37 | Sharp Increase |
+
+#### Observations
+
+* **Linear Range:** Within the linear modulation regions ($m \le 1.155$), the THD remains relatively stable and low. 
+* **Overmodulation Range:** As the modulation index enters the deep overmodulation range (e.g., $m = 1.3$), the THD exhibits a sharp increase. This trend is consistent with the theoretical prediction of increased low-order harmonic content, which occurs as the inverter is forced to drop pulses and the output voltage is clipped against the physical DC link limits.
