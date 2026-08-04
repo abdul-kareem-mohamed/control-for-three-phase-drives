@@ -185,3 +185,28 @@ The test was conducted and the measurements are in agreement with theoretical ex
 
 * **Linear Range:** Within the linear modulation regions ($m \le 1.155$), the THD remains stable and low. 
 * **Overmodulation Range:** As the modulation index enters the overmodulation range (e.g., $m = 1.3$), the THD exhibits a sharp increase. This trend is consistent with the increase in low-order harmonic content predicted by theory.
+
+### Influence of Switching Frequency
+
+To observe the effect of varying the pulse frequency ($f_{\text{p}}$) on the current waveform's ripple amplitude and periodicity. The operating point is fixed at a fundamental frequency of $f_1 = 25 \text{ Hz}$ and a modulation index of $m = 0.9$ with zero-sequence injection active (`Active = 1`).
+
+## Theory
+The pulse number is defined as the ratio of the switching frequency to the fundamental frequency:
+
+$$n_{\text{p}} = \frac{f_{\text{p}}}{f_1}$$
+
+*   **Synchronous PWM:** When $n_{\text{p}}$ is an integer multiple of three, the switching pattern repeats exactly in each fundamental period, and the spectrum contains no sub-harmonics.
+*   **Asynchronous PWM:** For a non-integer $n_{\text{p}}$, the carrier and reference are incommensurate, which leads to the appearance of small sub-harmonics.
+
+## Results and Observations
+
+The following observations were made by adjusting the pulse frequency online:
+
+### 1. $f_{\text{p}} = 8 \text{ kHz}$ ($n_{\text{p}} = 320$)
+*   **Observation:** The ripple is periodic with the fundamental period $T_1$. Because the pulse number ($n_{\text{p}} = 320$) is an integer, the switching pattern aligns consistently with the fundamental frequency, resulting in a repeating ripple pattern every fundamental cycle.
+
+### 2. $f_{\text{p}} = 4 \text{ kHz}$ ($n_{\text{p}} = 160$)
+*   **Observation:** When reducing the switching frequency from $8 \text{ kHz}$ to $4 \text{ kHz}$, the ripple amplitude increases visibly on the oscilloscope. This confirms the standard principle that a lower switching frequency produces a larger current ripple due to the longer duration between switching events.
+
+### 3. Non-integer $n_{\text{p}}$ (Asynchronous PWM)
+*   **Observation:** When a non-integer pulse number is set, low-frequency beat components appear in the current waveform. As the theory dictates, the carrier and reference signals are no longer commensurate in this state, introducing these small sub-harmonics (visible as a low-frequency oscillation or "beat" riding on the main envelope).
