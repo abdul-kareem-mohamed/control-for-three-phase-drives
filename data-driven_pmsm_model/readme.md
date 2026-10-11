@@ -68,3 +68,5 @@ Two parallel Simulink models (`sim_pmsm.slx`) are evaluated against physical tra
 
 
 The identical $u_{dq}$ voltage trajectories from the physical measurement are fed into both simulations. While both models perform accurately at low currents, the constant parameter model fails to accurately reflect the physical system at high currents due to magnetic saturation, whereas the non-linear flux map model successfully matches the measured current transients.
+
+**NOTE**: The actual experiment files are not shared in the repository. 
