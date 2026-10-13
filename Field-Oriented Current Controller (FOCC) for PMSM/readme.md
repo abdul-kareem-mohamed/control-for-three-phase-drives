@@ -30,7 +30,11 @@ The FOC structure is built within a provided Simulink model and consists of thre
 
 * **Anti-Reset Windup (ARW):** Implements a scheme to prevent the uncontrolled runaway of the integral state, which can occur in practice due to the limited DC-link voltage and the applied modulation technique.
 
+<img width="810" height="251" alt="image" src="https://github.com/user-attachments/assets/19f41d45-5c15-48e9-992c-5e3007716095" /> </br>
+Figure 1: Basic structure  of the FOC </br>
 
+<img width="816" height="373" alt="image" src="https://github.com/user-attachments/assets/d8fe2a23-78aa-4176-ad4f-4f8f6e54916e" /> </br>
+Figure 2: Controller representation with ARW feedback (reference prefilter path is not depicted for sake of simplicity) </br>
 
 ## Simulation and Experimental Verification
 
