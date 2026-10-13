@@ -17,7 +17,7 @@ The experimental setup utilizes a PMSM with the following nominal parameters:
 
 ## Controller Architecture
 
-The FOC structure is built within a provided Simulink model and consists of three primary components:
+The FOC structure is built in a Simulink model and consists of three primary components:
 
 * **Model Prediction:** Performs a one-step prediction based on the machine model to estimate the current at the exact time of the controller output update.
 
